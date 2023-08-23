@@ -59,6 +59,7 @@ class MyMainWindow(QMainWindow, Ui_ILX_translator_window):
         super().__init__(parent)
         self.setupUi(self)
 
+        self.maximum_lineEdit_width = 500
         self.label_text_over_500px.hide()
         # Creating callable layouts to add and delete lineEdits in
         self.layout_eng = QVBoxLayout(self.groupBox_eng_values)
@@ -170,7 +171,7 @@ class MyMainWindow(QMainWindow, Ui_ILX_translator_window):
             text_edit_eng.setText(eng_text)  # Sets text of LineEdit to Excel content Column "English"
             text_edit_trans.setText(trans_text)
 
-            if text_edit_eng.width() > 499:
+            if text_edit_eng.width() > self.maximum_lineEdit_width:
                 self.label_text_over_500px.show()
 
             self.layout_eng.addWidget(text_edit_eng)  # Adds LineEdit to QVBoxLayout (groupBox_eng_values)
