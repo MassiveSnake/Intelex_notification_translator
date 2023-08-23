@@ -20,7 +20,8 @@ class AutoResizingLineEdit(QLineEdit):
         super().__init__(*args, **kwargs)
 
         self.setMinimumHeight(20)  # Set a minimum height
-        self.setMaximumWidth(498)
+        self.maximum_lineEdit_width = 500
+        self.setMaximumWidth(self.maximum_lineEdit_width-2)
         # Set maximum size 2 below maximum size LineEdit,
         # keeps sizing sortoff equal while allowing error label to popup
         self.textChanged.connect(self.updateSize)
@@ -43,8 +44,8 @@ class AutoResizingLineEdit(QLineEdit):
         """
         content_width = self.fontMetrics().width(self.text()) + 12  # Add some padding
 
-        if content_width > 500:
-            content_width = 500
+        if content_width > self.maximum_lineEdit_width:
+            content_width = self.maximum_lineEdit_width
             self.setStyleSheet("background-color: lightyellow;")
         else:
             self.setStyleSheet("")

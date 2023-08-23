@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ILX_translator_window</class>
+ <widget class="QMainWindow" name="ILX_translator_window">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1150</width>
+    <height>717</height>
+   </rect>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>16777215</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_9">
+    <item row="0" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QGroupBox" name="groupBox">
+        <property name="title">
+         <string>Notification Template:</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_2">
+         <item row="0" column="0">
+          <widget class="QLineEdit" name="lineEdit_notification_template">
+           <property name="text">
+            <string>Unspecified_notification_template</string>
+           </property>
+           <property name="frame">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QTabWidget" name="tabWidget">
+        <property name="currentIndex">
+         <number>1</number>
+        </property>
+        <widget class="QWidget" name="tab_2">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <attribute name="title">
+          <string>Translations</string>
+         </attribute>
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="1" column="0">
+           <widget class="QScrollArea" name="scrollArea">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="horizontalScrollBarPolicy">
+             <enum>Qt::ScrollBarAsNeeded</enum>
+            </property>
+            <property name="widgetResizable">
+             <bool>true</bool>
+            </property>
+            <widget class="QWidget" name="scrollAreaWidgetContents_2">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>1104</width>
+               <height>450</height>
+              </rect>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_3">
+              <item row="0" column="0">
+               <layout class="QHBoxLayout" name="horizontalLayout_translations">
+                <property name="sizeConstraint">
+                 <enum>QLayout::SetMaximumSize</enum>
+                </property>
+                <item>
+                 <widget class="QGroupBox" name="groupBox_eng_values">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="focusPolicy">
+                   <enum>Qt::NoFocus</enum>
+                  </property>
+                  <property name="title">
+                   <string>English</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QGroupBox" name="groupBox_trans_values">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="title">
+                   <string>Translation</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_text_over_500px">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 255, 127);</string>
+            </property>
+            <property name="text">
+             <string>[Warning] Sentence width extends Line Edit (&gt;500 px)</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="tab">
+         <attribute name="title">
+          <string>HTML replacer</string>
+         </attribute>
+         <layout class="QGridLayout" name="gridLayout_10">
+          <item row="0" column="0">
+           <layout class="QVBoxLayout" name="verticalLayout_3">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_2">
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout">
+                <item>
+                 <widget class="QToolBox" name="toolBox">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>300</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="currentIndex">
+                   <number>0</number>
+                  </property>
+                  <widget class="QWidget" name="html_english">
+                   <property name="geometry">
+                    <rect>
+                     <x>0</x>
+                     <y>0</y>
+                     <width>546</width>
+                     <height>411</height>
+                    </rect>
+                   </property>
+                   <attribute name="label">
+                    <string>HTML English</string>
+                   </attribute>
+                   <layout class="QGridLayout" name="gridLayout_5">
+                    <item row="1" column="0">
+                     <widget class="QTextEdit" name="textEdit_eng">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>0</height>
+                       </size>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="0">
+                     <widget class="QLineEdit" name="lineEdit_search_eng">
+                      <property name="placeholderText">
+                       <string>Search...</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                  <widget class="QWidget" name="rich_text_english">
+                   <property name="geometry">
+                    <rect>
+                     <x>0</x>
+                     <y>0</y>
+                     <width>89</width>
+                     <height>89</height>
+                    </rect>
+                   </property>
+                   <attribute name="label">
+                    <string>HTML- Formatted - English</string>
+                   </attribute>
+                   <layout class="QGridLayout" name="gridLayout_4">
+                    <item row="0" column="0">
+                     <widget class="QTextEdit" name="textEdit_eng_formatted">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>0</height>
+                       </size>
+                      </property>
+                      <property name="readOnly">
+                       <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_trans_output">
+                <item>
+                 <widget class="QToolBox" name="toolBox_2">
+                  <property name="minimumSize">
+                   <size>
+                    <width>300</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="currentIndex">
+                   <number>0</number>
+                  </property>
+                  <widget class="QWidget" name="page_3">
+                   <property name="geometry">
+                    <rect>
+                     <x>0</x>
+                     <y>0</y>
+                     <width>546</width>
+                     <height>411</height>
+                    </rect>
+                   </property>
+                   <attribute name="label">
+                    <string>HTML Translated</string>
+                   </attribute>
+                   <layout class="QGridLayout" name="gridLayout_6">
+                    <item row="1" column="0">
+                     <widget class="QTextEdit" name="textEdit_trans">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>0</height>
+                       </size>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="0">
+                     <widget class="QLineEdit" name="lineEdit_search_trans">
+                      <property name="placeholderText">
+                       <string>Search....</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                  <widget class="QWidget" name="page_4">
+                   <property name="geometry">
+                    <rect>
+                     <x>0</x>
+                     <y>0</y>
+                     <width>89</width>
+                     <height>89</height>
+                    </rect>
+                   </property>
+                   <attribute name="label">
+                    <string>HTML - Formatted - Translated</string>
+                   </attribute>
+                   <layout class="QGridLayout" name="gridLayout_7">
+                    <item row="0" column="0">
+                     <widget class="QTextEdit" name="textEdit_trans_formatted">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>0</height>
+                       </size>
+                      </property>
+                      <property name="readOnly">
+                       <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QPushButton" name="pushButton_export">
+          <property name="text">
+           <string>Export
+Translation</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_import">
+          <property name="text">
+           <string>Import
+Translation</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_generate">
+        <property name="text">
+         <string>Generate
+HTML</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1150</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionSave_html"/>
+    <addaction name="actionImport_html"/>
+   </widget>
+   <addaction name="menuFile"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionSave_html">
+   <property name="text">
+    <string>Save English html</string>
+   </property>
+  </action>
+  <action name="actionImport_html">
+   <property name="text">
+    <string>Import English html</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>textEdit_eng</sender>
+   <signal>textChanged()</signal>
+   <receiver>ILX_translator_window</receiver>
+   <slot>textEdit_html_eng_changed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>149</x>
+     <y>177</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>479</x>
+     <y>359</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_generate</sender>
+   <signal>clicked()</signal>
+   <receiver>ILX_translator_window</receiver>
+   <slot>button_clicked_generate()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>479</x>
+     <y>678</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>479</x>
+     <y>359</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>textEdit_trans</sender>
+   <signal>textChanged()</signal>
+   <receiver>ILX_translator_window</receiver>
+   <slot>textEdit_html_trans_changed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>752</x>
+     <y>197</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>479</x>
+     <y>359</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_export</sender>
+   <signal>clicked()</signal>
+   <receiver>ILX_translator_window</receiver>
+   <slot>button_clicked_export()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>314</x>
+     <y>66</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>479</x>
+     <y>359</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_import</sender>
+   <signal>clicked()</signal>
+   <receiver>ILX_translator_window</receiver>
+   <slot>button_clicked_import()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>395</x>
+     <y>66</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>479</x>
+     <y>359</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lineEdit_search_eng</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>ILX_translator_window</receiver>
+   <slot>lineEdit_search_eng_changed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>247</x>
+     <y>169</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>476</x>
+     <y>469</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lineEdit_search_trans</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>ILX_translator_window</receiver>
+   <slot>lineEdit_search_trans_changed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>703</x>
+     <y>169</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>476</x>
+     <y>469</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionSave_html</sender>
+   <signal>triggered()</signal>
+   <receiver>ILX_translator_window</receiver>
+   <slot>Save_html_triggered()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>476</x>
+     <y>469</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionImport_html</sender>
+   <signal>triggered()</signal>
+   <receiver>ILX_translator_window</receiver>
+   <slot>Import_html_triggered()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>476</x>
+     <y>469</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>button_clicked_apply_num_edits()</slot>
+  <slot>textEdit_html_eng_changed()</slot>
+  <slot>textEdit_html_trans_changed()</slot>
+  <slot>button_clicked_generate()</slot>
+  <slot>button_clicked_export()</slot>
+  <slot>button_clicked_import()</slot>
+  <slot>button_clicked_edit_html()</slot>
+  <slot>lineEdit_search_eng_changed()</slot>
+  <slot>lineEdit_search_trans_changed()</slot>
+  <slot>Save_html_triggered()</slot>
+  <slot>Import_html_triggered()</slot>
+ </slots>
+</ui>
