@@ -32,6 +32,41 @@ class Ui_ILX_translator_window(object):
         self.gridLayout_2.addWidget(self.lineEdit_notification_template, 0, 0, 1, 1)
         self.verticalLayout_2.addWidget(self.groupBox)
         self.tabWidget = QtWidgets.QTabWidget(self.centralwidget)
+        self.tabWidget.setStyleSheet("QTabWidget::pane { /* The tab widget frame */\n"
+"    border-top: 2px solid #C2C7CB;\n"
+"    position: absolute;\n"
+"    top: -0.5em;\n"
+"}\n"
+"\n"
+"QTabWidget::tab-bar {\n"
+"    alignment: center;\n"
+"}\n"
+"\n"
+"/* Style the tab using the tab sub-control. Note that\n"
+"    it reads QTabBar _not_ QTabWidget */\n"
+"QTabBar::tab {\n"
+"    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
+"                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);\n"
+"    border: 2px solid #C4C4C3;\n"
+"    border-bottom-color: #C2C7CB; /* same as the pane color */\n"
+"    border-top-left-radius: 4px;\n"
+"    border-top-right-radius: 4px;\n"
+"    min-width: 120ex;\n"
+"    padding: 7px;\n"
+"}\n"
+"\n"
+"\n"
+"QTabBar::tab:selected, QTabBar::tab:hover {\n"
+"    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                stop: 0 #fafafa, stop: 0.4 #f4f4f4,\n"
+"                                stop: 0.5 #e7e7e7, stop: 1.0 #fafafa);\n"
+"}\n"
+"\n"
+"QTabBar::tab:selected {\n"
+"    border-color: #9B9B9B;\n"
+"    border-bottom-color: #C2C7CB; /* same as pane color */\n"
+"}")
         self.tabWidget.setObjectName("tabWidget")
         self.tab_2 = QtWidgets.QWidget()
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
@@ -52,7 +87,7 @@ class Ui_ILX_translator_window(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents_2 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 1104, 450))
+        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 1110, 449))
         self.scrollAreaWidgetContents_2.setObjectName("scrollAreaWidgetContents_2")
         self.gridLayout_3 = QtWidgets.QGridLayout(self.scrollAreaWidgetContents_2)
         self.gridLayout_3.setObjectName("gridLayout_3")
@@ -106,9 +141,29 @@ class Ui_ILX_translator_window(object):
         sizePolicy.setHeightForWidth(self.toolBox.sizePolicy().hasHeightForWidth())
         self.toolBox.setSizePolicy(sizePolicy)
         self.toolBox.setMinimumSize(QtCore.QSize(300, 0))
+        self.toolBox.setStyleSheet("QToolBox::tab {\n"
+"    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
+"                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);\n"
+"    border: 2px solid #C4C4C3;\n"
+"    border-bottom-color: #C2C7CB; /* same as the pane color */\n"
+"    border-top-left-radius: 4px;\n"
+"    border-top-right-radius: 4px;\n"
+"}\n"
+"\n"
+"QToolBox::tab:selected, QToolBox::tab:hover {\n"
+"    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                stop: 0 #fafafa, stop: 0.4 #f4f4f4,\n"
+"                                stop: 0.5 #e7e7e7, stop: 1.0 #fafafa);\n"
+"}\n"
+"\n"
+"QToolBox::tab:selected {\n"
+"    border-color: #9B9B9B;\n"
+"    border-bottom-color: #C2C7CB; /* same as pane color */\n"
+"}")
         self.toolBox.setObjectName("toolBox")
         self.html_english = QtWidgets.QWidget()
-        self.html_english.setGeometry(QtCore.QRect(0, 0, 546, 411))
+        self.html_english.setGeometry(QtCore.QRect(0, 0, 549, 410))
         self.html_english.setObjectName("html_english")
         self.gridLayout_5 = QtWidgets.QGridLayout(self.html_english)
         self.gridLayout_5.setObjectName("gridLayout_5")
@@ -121,7 +176,7 @@ class Ui_ILX_translator_window(object):
         self.gridLayout_5.addWidget(self.lineEdit_search_eng, 0, 0, 1, 1)
         self.toolBox.addItem(self.html_english, "")
         self.rich_text_english = QtWidgets.QWidget()
-        self.rich_text_english.setGeometry(QtCore.QRect(0, 0, 89, 89))
+        self.rich_text_english.setGeometry(QtCore.QRect(0, 0, 549, 410))
         self.rich_text_english.setObjectName("rich_text_english")
         self.gridLayout_4 = QtWidgets.QGridLayout(self.rich_text_english)
         self.gridLayout_4.setObjectName("gridLayout_4")
@@ -137,9 +192,29 @@ class Ui_ILX_translator_window(object):
         self.verticalLayout_trans_output.setObjectName("verticalLayout_trans_output")
         self.toolBox_2 = QtWidgets.QToolBox(self.tab)
         self.toolBox_2.setMinimumSize(QtCore.QSize(300, 0))
+        self.toolBox_2.setStyleSheet("QToolBox::tab {\n"
+"    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
+"                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);\n"
+"    border: 2px solid #C4C4C3;\n"
+"    border-bottom-color: #C2C7CB; /* same as the pane color */\n"
+"    border-top-left-radius: 4px;\n"
+"    border-top-right-radius: 4px;\n"
+"}\n"
+"\n"
+"QToolBox::tab:selected, QToolBox::tab:hover {\n"
+"    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                stop: 0 #fafafa, stop: 0.4 #f4f4f4,\n"
+"                                stop: 0.5 #e7e7e7, stop: 1.0 #fafafa);\n"
+"}\n"
+"\n"
+"QToolBox::tab:selected {\n"
+"    border-color: #9B9B9B;\n"
+"    border-bottom-color: #C2C7CB; /* same as pane color */\n"
+"}")
         self.toolBox_2.setObjectName("toolBox_2")
         self.page_3 = QtWidgets.QWidget()
-        self.page_3.setGeometry(QtCore.QRect(0, 0, 546, 411))
+        self.page_3.setGeometry(QtCore.QRect(0, 0, 549, 410))
         self.page_3.setObjectName("page_3")
         self.gridLayout_6 = QtWidgets.QGridLayout(self.page_3)
         self.gridLayout_6.setObjectName("gridLayout_6")
