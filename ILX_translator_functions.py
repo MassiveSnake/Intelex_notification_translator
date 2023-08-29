@@ -7,8 +7,7 @@ import re
 import math
 
 
-# TODO: add Logic?
-# TODO: Error exceptions
+
 def messagebox(errortype, text, info):
     msg = QMessageBox()
     msg.setIcon(QMessageBox.Warning)
@@ -267,7 +266,6 @@ class MyMainWindow(QMainWindow, Ui_ILX_translator_window):
 # ---------------------- REPLACEMENT/TRANSLATION METHODS ----------------------
 # -----------------------------------------------------------------------------
     def create_dictionary(self):
-        # TODO: Notify when translation has missing values
         """
         Creates a python Dictionary based from LineEdits in Translation tab.
         Key = English
