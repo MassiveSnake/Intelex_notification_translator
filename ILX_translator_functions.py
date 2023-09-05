@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import QMainWindow, QVBoxLayout, QFileDialog, QLineEdit, QMessageBox
 from PyQt5.QtGui import QTextDocument, QTextCursor, QColor, QTextCharFormat
-from PyQt5.QtCore import QSize, QTimer
+from PyQt5.QtCore import QSize, QTimer, QFileInfo
 from ILX_translator_QT import Ui_ILX_translator_window
 import pandas as pd
 import re
@@ -24,7 +24,7 @@ class MyMainWindow(QMainWindow, Ui_ILX_translator_window):
         super().__init__(parent)
         self.setupUi(self)
 
-        self.label_text_over_500px.hide()
+        #self.label_text_over_500px.hide()
         # Creating callable layouts to add and delete lineEdits in
         self.layout_eng = QVBoxLayout(self.groupBox_eng_values)
         self.layout_trans = QVBoxLayout(self.groupBox_trans_values)
@@ -92,7 +92,7 @@ class MyMainWindow(QMainWindow, Ui_ILX_translator_window):
 # --------------------------------------------------------------
     def Save_html_triggered(self):
         # TODO: Except textEdit_eng is empty:
-        filename, _ = QFileDialog.getSaveFileName(self, "Save Page As", "",
+        filename, _ = QFileDialog.getSaveFileName(self, "Save html As", "",
                                                   "Hypertext Markup Language (*.htm *html);;"
                                                   "All files (*.*)")
         if filename:
@@ -108,6 +108,9 @@ class MyMainWindow(QMainWindow, Ui_ILX_translator_window):
             with open(filename, 'r') as f:
                 html = f.read()
             self.textEdit_eng.setText(html)
+
+        name = QFileInfo(filename).fileName()
+        self.lineEdit_notification_template.setText(name)
 
 # --------------------------------------------------------------------
 # ----------------------TRANSLATION TAB METHODS ----------------------
@@ -137,7 +140,7 @@ class MyMainWindow(QMainWindow, Ui_ILX_translator_window):
         3): Alters column width so the content fits in the cells
         :return:
         """
-        translation_dict = self.create_dictionary()
+        translation_dict = self.create_dictionary(error=False)
         df = pd.DataFrame(data=translation_dict.items(), columns=["English", "Translation"])
         export_title = self.lineEdit_notification_template.text()
 
@@ -174,7 +177,7 @@ class MyMainWindow(QMainWindow, Ui_ILX_translator_window):
 
         :return: Populates LineEdits in Translation tab
         """
-        filename = QFileDialog.getOpenFileName(self, 'OpenFile', "", "Excel (*.xls *.xlsx)")
+        filename = QFileDialog.getOpenFileName(self, 'Open File', "", "Excel (*.xls *.xlsx)")
         if filename[0] == '': # Does nothing when no file is passed
             pass
         else:
@@ -182,7 +185,7 @@ class MyMainWindow(QMainWindow, Ui_ILX_translator_window):
             self.delete_textEdits()
             line_num = 1  # Unused counter, to check number of LineEdits created
 
-            self.label_text_over_500px.hide()
+            #self.label_text_over_500px.hide()
             for index, row in df.iterrows():
                 eng_text = str(row["English"])
                 trans_text = str(row["Translation"])
@@ -193,8 +196,8 @@ class MyMainWindow(QMainWindow, Ui_ILX_translator_window):
                 text_edit_eng.setText(eng_text)  # Sets text of LineEdit to Excel content Column "English"
                 text_edit_trans.setText(trans_text)
 
-                if text_edit_eng.width() > self.maximum_lineEdit_width:
-                    self.label_text_over_500px.show()
+                # if text_edit_eng.width() > self.maximum_lineEdit_width:
+                #     self.label_text_over_500px.show()
 
                 self.layout_eng.addWidget(text_edit_eng)  # Adds LineEdit to QVBoxLayout (groupBox_eng_values)
                 self.layout_trans.addWidget(text_edit_trans)
@@ -228,7 +231,7 @@ class MyMainWindow(QMainWindow, Ui_ILX_translator_window):
 
         line_num = 1
         # Add new LineEdit widgets to both groupBox and set text
-        self.label_text_over_500px.hide()
+        #self.label_text_over_500px.hide()
         for line in lines:
             line = line.strip()  # Remove leading and trailing spaces
             if line:
@@ -245,8 +248,8 @@ class MyMainWindow(QMainWindow, Ui_ILX_translator_window):
                 text_edit_eng.setText(line)  # Set text in AutoResizingLineEdit
                 text_edit_trans.setText(concatenated_values)  # Set text in AutoResizingLineEdit
 
-                if text_edit_eng.width() > 499:
-                    self.label_text_over_500px.show()
+                # if text_edit_eng.width() > 499:
+                #     self.label_text_over_500px.show()
 
                 self.layout_eng.addWidget(text_edit_eng)  # Add AutoResizingLineEdit to layout
                 self.layout_trans.addWidget(text_edit_trans)  # Add AutoResizingLineEdit to layout
@@ -265,7 +268,7 @@ class MyMainWindow(QMainWindow, Ui_ILX_translator_window):
 # -----------------------------------------------------------------------------
 # ---------------------- REPLACEMENT/TRANSLATION METHODS ----------------------
 # -----------------------------------------------------------------------------
-    def create_dictionary(self):
+    def create_dictionary(self, error):
         """
         Creates a python Dictionary based from LineEdits in Translation tab.
         Key = English
@@ -273,7 +276,6 @@ class MyMainWindow(QMainWindow, Ui_ILX_translator_window):
         :return: Dictionary { English : Translation }
         """
         translation_dict = {}
-        error_count = 0
         for i in range(self.layout_eng.count()):
             text_edit_eng = self.layout_eng.itemAt(i).widget()
             text_edit_trans = self.layout_trans.itemAt(i).widget()
@@ -281,13 +283,13 @@ class MyMainWindow(QMainWindow, Ui_ILX_translator_window):
             if text_edit_eng and text_edit_trans:  # Additional check, to see if both items/objects exist
                 eng_text = text_edit_eng.text()
                 trans_text = text_edit_trans.text()
-                if trans_text == "" and error_count == 0:
+                if trans_text == "" and error == True:
                     errortype = "Missing Translation"
                     text = "Warning: Missing Translation"
                     info = "In the Translation tab an English value has not been translated.\n" \
                            "However, you can still proceed, the value will be replaced by a blank."
                     messagebox(errortype, text, info)
-                    error_count += 1
+                    error = False
 
                 translation_dict[eng_text] = trans_text
 
@@ -301,7 +303,7 @@ class MyMainWindow(QMainWindow, Ui_ILX_translator_window):
         """
         html = self.textEdit_eng.toPlainText()
         cleaned_html = re.sub(' +', ' ', html)  # Removes duplicate/multiple spaces from original html
-        translation_dict = self.create_dictionary()
+        translation_dict = self.create_dictionary(error=True)
 
         for old_text, new_text in translation_dict.items():
             # Remove extra whitespace and handle case insensitivity

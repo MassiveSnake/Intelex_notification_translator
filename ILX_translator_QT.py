@@ -14,34 +14,71 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_ILX_translator_window(object):
     def setupUi(self, ILX_translator_window):
         ILX_translator_window.setObjectName("ILX_translator_window")
-        ILX_translator_window.resize(1150, 717)
+        ILX_translator_window.resize(952, 722)
         ILX_translator_window.setMaximumSize(QtCore.QSize(16777215, 16777215))
-        self.centralwidget = QtWidgets.QWidget(ILX_translator_window)
-        self.centralwidget.setObjectName("centralwidget")
-        self.gridLayout_9 = QtWidgets.QGridLayout(self.centralwidget)
-        self.gridLayout_9.setObjectName("gridLayout_9")
-        self.verticalLayout_2 = QtWidgets.QVBoxLayout()
-        self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
-        self.groupBox.setObjectName("groupBox")
-        self.gridLayout_2 = QtWidgets.QGridLayout(self.groupBox)
-        self.gridLayout_2.setObjectName("gridLayout_2")
-        self.lineEdit_notification_template = QtWidgets.QLineEdit(self.groupBox)
-        self.lineEdit_notification_template.setFrame(True)
-        self.lineEdit_notification_template.setObjectName("lineEdit_notification_template")
-        self.gridLayout_2.addWidget(self.lineEdit_notification_template, 0, 0, 1, 1)
-        self.verticalLayout_2.addWidget(self.groupBox)
-        self.tabWidget = QtWidgets.QTabWidget(self.centralwidget)
-        self.tabWidget.setStyleSheet("QTabWidget::pane { /* The tab widget frame */\n"
+        font = QtGui.QFont()
+        font.setFamily("Century Schoolbook")
+        font.setPointSize(9)
+        ILX_translator_window.setFont(font)
+        ILX_translator_window.setStyleSheet("QMenu, QMenuBar {\n"
+"    width: 200px;\n"
+"    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
+"                                      stop:0 lightgray, stop:1 #9B9B9B);\n"
+"}\n"
+"QMenu::item, QMenuBar::item {\n"
+"    width: 200px;\n"
+"    spacing: 3px;           \n"
+"    padding: 2px 10px;\n"
+"    background-color:  #C2C7CB;\n"
+"    color: rgb(0,0,0);  \n"
+"    border-radius: 5px;\n"
+"}\n"
+"QMenu::item::selected, QMenuBar::item::selected {    \n"
+"    background-color:  #ffde9b;\n"
+"}\n"
+"QMenu::item::pressed, QMenuBar::item::pressed {\n"
+"    background: #ffde9b;\n"
+"}\n"
+"\n"
+"QWidget {    \n"
+"background-color:  qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                stop: 0.2 #ffffff, stop: 0.5 #ffde9b,\n"
+"                                stop: 0.5 #ffde9b, stop: 0.8 #ffffff);\n"
+"}\n"
+"QToolBox::tab{\n"
+"    background-color: rgb(228, 228, 228);\n"
+"\n"
+"}\n"
+"QToolBox::tab::hover, QToolBox::tab::selected{\n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffde9b, stop:0.5 rgba(255, 255, 255, 255));\n"
+"}\n"
+"QToolBox::tab:selected {\n"
+"    border-top : 2px solid;\n"
+"    border-color: #9B9B9B;\n"
+"}\n"
+"QToolBox::tab::hover {\n"
+"    border : 2px solid;\n"
+"    border-color: #9B9B9B;\n"
+"}\n"
+"\n"
+"QGroupBox{\n"
+"background-color: #DDDDDD;\n"
+"}\n"
+"QTextEdit{\n"
+"background-color: #ebebeb;\n"
+"}\n"
+"QLineEdit{\n"
+"    background-color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QTabWidget::pane { /* The tab widget frame */\n"
 "    border-top: 2px solid #C2C7CB;\n"
 "    position: absolute;\n"
 "    top: -0.5em;\n"
 "}\n"
-"\n"
 "QTabWidget::tab-bar {\n"
 "    alignment: center;\n"
 "}\n"
-"\n"
 "/* Style the tab using the tab sub-control. Note that\n"
 "    it reads QTabBar _not_ QTabWidget */\n"
 "QTabBar::tab {\n"
@@ -55,212 +92,245 @@ class Ui_ILX_translator_window(object):
 "    min-width: 120ex;\n"
 "    padding: 7px;\n"
 "}\n"
-"\n"
-"\n"
 "QTabBar::tab:selected, QTabBar::tab:hover {\n"
+"    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                stop: 0 #fafafa, stop: 0.4 #ffde9b,\n"
+"                                stop: 0.5 #ffde9b, stop: 1.0 #fafafa);\n"
+"}\n"
+"QTabBar::tab:selected {\n"
+"    border-color: #9B9B9B;\n"
+"    border-bottom-color:#ffde9b; /* same as pane color */\n"
+"}\n"
+"\n"
+" QPushButton::hover {\n"
 "    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
 "                                stop: 0 #fafafa, stop: 0.4 #f4f4f4,\n"
 "                                stop: 0.5 #e7e7e7, stop: 1.0 #fafafa);\n"
 "}\n"
-"\n"
-"QTabBar::tab:selected {\n"
-"    border-color: #9B9B9B;\n"
-"    border-bottom-color: #C2C7CB; /* same as pane color */\n"
+"QPushButton::pressed {\n"
+"    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                stop: 0 #fafafa, stop: 0.1 #f4f4f4,\n"
+"                                stop: 0.9 #e7e7e7, stop: 1.0 #fafafa);\n"
+"}\n"
+"QPushButton {\n"
+"    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
+"                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);\n"
+"    border: 2px solid #C4C4C3;\n"
+"    border-bottom-color: #C2C7CB; /* same as the pane color */\n"
+"    border-radius: 10px;\n"
 "}")
+        self.centralwidget = QtWidgets.QWidget(ILX_translator_window)
+        self.centralwidget.setObjectName("centralwidget")
+        self.gridLayout_4 = QtWidgets.QGridLayout(self.centralwidget)
+        self.gridLayout_4.setObjectName("gridLayout_4")
+        self.verticalLayout_tab_and_buttons = QtWidgets.QVBoxLayout()
+        self.verticalLayout_tab_and_buttons.setObjectName("verticalLayout_tab_and_buttons")
+        self.groupBox_notification_template = QtWidgets.QGroupBox(self.centralwidget)
+        font = QtGui.QFont()
+        font.setFamily("Century Schoolbook")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setWeight(50)
+        self.groupBox_notification_template.setFont(font)
+        self.groupBox_notification_template.setObjectName("groupBox_notification_template")
+        self.gridLayout_2 = QtWidgets.QGridLayout(self.groupBox_notification_template)
+        self.gridLayout_2.setObjectName("gridLayout_2")
+        self.lineEdit_notification_template = QtWidgets.QLineEdit(self.groupBox_notification_template)
+        self.lineEdit_notification_template.setFrame(True)
+        self.lineEdit_notification_template.setObjectName("lineEdit_notification_template")
+        self.gridLayout_2.addWidget(self.lineEdit_notification_template, 0, 0, 1, 1)
+        self.verticalLayout_tab_and_buttons.addWidget(self.groupBox_notification_template)
+        self.tabWidget = QtWidgets.QTabWidget(self.centralwidget)
+        font = QtGui.QFont()
+        font.setFamily("Century Schoolbook")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.tabWidget.setFont(font)
+        self.tabWidget.setStyleSheet("")
         self.tabWidget.setObjectName("tabWidget")
-        self.tab_2 = QtWidgets.QWidget()
+        self.tab_translations = QtWidgets.QWidget()
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.tab_2.sizePolicy().hasHeightForWidth())
-        self.tab_2.setSizePolicy(sizePolicy)
-        self.tab_2.setObjectName("tab_2")
-        self.gridLayout = QtWidgets.QGridLayout(self.tab_2)
+        sizePolicy.setHeightForWidth(self.tab_translations.sizePolicy().hasHeightForWidth())
+        self.tab_translations.setSizePolicy(sizePolicy)
+        self.tab_translations.setObjectName("tab_translations")
+        self.gridLayout = QtWidgets.QGridLayout(self.tab_translations)
         self.gridLayout.setObjectName("gridLayout")
-        self.scrollArea = QtWidgets.QScrollArea(self.tab_2)
+        self.scrollArea_translation_lineEdits = QtWidgets.QScrollArea(self.tab_translations)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.scrollArea.sizePolicy().hasHeightForWidth())
-        self.scrollArea.setSizePolicy(sizePolicy)
-        self.scrollArea.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
-        self.scrollArea.setWidgetResizable(True)
-        self.scrollArea.setObjectName("scrollArea")
-        self.scrollAreaWidgetContents_2 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 1110, 449))
-        self.scrollAreaWidgetContents_2.setObjectName("scrollAreaWidgetContents_2")
-        self.gridLayout_3 = QtWidgets.QGridLayout(self.scrollAreaWidgetContents_2)
+        sizePolicy.setHeightForWidth(self.scrollArea_translation_lineEdits.sizePolicy().hasHeightForWidth())
+        self.scrollArea_translation_lineEdits.setSizePolicy(sizePolicy)
+        self.scrollArea_translation_lineEdits.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.scrollArea_translation_lineEdits.setWidgetResizable(True)
+        self.scrollArea_translation_lineEdits.setObjectName("scrollArea_translation_lineEdits")
+        self.scrollAreaWidgetContents = QtWidgets.QWidget()
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 912, 468))
+        self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
+        self.gridLayout_3 = QtWidgets.QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_3.setObjectName("gridLayout_3")
         self.horizontalLayout_translations = QtWidgets.QHBoxLayout()
         self.horizontalLayout_translations.setSizeConstraint(QtWidgets.QLayout.SetMaximumSize)
         self.horizontalLayout_translations.setObjectName("horizontalLayout_translations")
-        self.groupBox_eng_values = QtWidgets.QGroupBox(self.scrollAreaWidgetContents_2)
+        self.groupBox_eng_values = QtWidgets.QGroupBox(self.scrollAreaWidgetContents)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.groupBox_eng_values.sizePolicy().hasHeightForWidth())
         self.groupBox_eng_values.setSizePolicy(sizePolicy)
         self.groupBox_eng_values.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("Century Schoolbook")
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setItalic(True)
+        font.setWeight(75)
+        self.groupBox_eng_values.setFont(font)
         self.groupBox_eng_values.setFocusPolicy(QtCore.Qt.NoFocus)
         self.groupBox_eng_values.setObjectName("groupBox_eng_values")
         self.horizontalLayout_translations.addWidget(self.groupBox_eng_values)
-        self.groupBox_trans_values = QtWidgets.QGroupBox(self.scrollAreaWidgetContents_2)
+        self.groupBox_trans_values = QtWidgets.QGroupBox(self.scrollAreaWidgetContents)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.groupBox_trans_values.sizePolicy().hasHeightForWidth())
         self.groupBox_trans_values.setSizePolicy(sizePolicy)
         self.groupBox_trans_values.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("Century Schoolbook")
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setItalic(True)
+        font.setWeight(75)
+        self.groupBox_trans_values.setFont(font)
         self.groupBox_trans_values.setObjectName("groupBox_trans_values")
         self.horizontalLayout_translations.addWidget(self.groupBox_trans_values)
         self.gridLayout_3.addLayout(self.horizontalLayout_translations, 0, 0, 1, 1)
-        self.scrollArea.setWidget(self.scrollAreaWidgetContents_2)
-        self.gridLayout.addWidget(self.scrollArea, 1, 0, 1, 1)
-        self.label_text_over_500px = QtWidgets.QLabel(self.tab_2)
-        self.label_text_over_500px.setEnabled(True)
-        self.label_text_over_500px.setMaximumSize(QtCore.QSize(16777215, 30))
-        self.label_text_over_500px.setStyleSheet("background-color: rgb(255, 255, 127);")
-        self.label_text_over_500px.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_text_over_500px.setObjectName("label_text_over_500px")
-        self.gridLayout.addWidget(self.label_text_over_500px, 0, 0, 1, 1)
-        self.tabWidget.addTab(self.tab_2, "")
-        self.tab = QtWidgets.QWidget()
-        self.tab.setObjectName("tab")
-        self.gridLayout_10 = QtWidgets.QGridLayout(self.tab)
-        self.gridLayout_10.setObjectName("gridLayout_10")
-        self.verticalLayout_3 = QtWidgets.QVBoxLayout()
-        self.verticalLayout_3.setObjectName("verticalLayout_3")
-        self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        self.verticalLayout = QtWidgets.QVBoxLayout()
-        self.verticalLayout.setObjectName("verticalLayout")
-        self.toolBox = QtWidgets.QToolBox(self.tab)
+        self.scrollArea_translation_lineEdits.setWidget(self.scrollAreaWidgetContents)
+        self.gridLayout.addWidget(self.scrollArea_translation_lineEdits, 0, 0, 1, 1)
+        self.tabWidget.addTab(self.tab_translations, "")
+        self.tab_html = QtWidgets.QWidget()
+        self.tab_html.setObjectName("tab_html")
+        self.gridLayout_5 = QtWidgets.QGridLayout(self.tab_html)
+        self.gridLayout_5.setObjectName("gridLayout_5")
+        self.horizontalLayout = QtWidgets.QHBoxLayout()
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.toolBox_eng = QtWidgets.QToolBox(self.tab_html)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.toolBox.sizePolicy().hasHeightForWidth())
-        self.toolBox.setSizePolicy(sizePolicy)
-        self.toolBox.setMinimumSize(QtCore.QSize(300, 0))
-        self.toolBox.setStyleSheet("QToolBox::tab {\n"
-"    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
-"                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);\n"
-"    border: 2px solid #C4C4C3;\n"
-"    border-bottom-color: #C2C7CB; /* same as the pane color */\n"
-"    border-top-left-radius: 4px;\n"
-"    border-top-right-radius: 4px;\n"
-"}\n"
-"\n"
-"QToolBox::tab:selected, QToolBox::tab:hover {\n"
-"    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                stop: 0 #fafafa, stop: 0.4 #f4f4f4,\n"
-"                                stop: 0.5 #e7e7e7, stop: 1.0 #fafafa);\n"
-"}\n"
-"\n"
-"QToolBox::tab:selected {\n"
-"    border-color: #9B9B9B;\n"
-"    border-bottom-color: #C2C7CB; /* same as pane color */\n"
-"}")
-        self.toolBox.setObjectName("toolBox")
-        self.html_english = QtWidgets.QWidget()
-        self.html_english.setGeometry(QtCore.QRect(0, 0, 549, 410))
-        self.html_english.setObjectName("html_english")
-        self.gridLayout_5 = QtWidgets.QGridLayout(self.html_english)
-        self.gridLayout_5.setObjectName("gridLayout_5")
-        self.textEdit_eng = QtWidgets.QTextEdit(self.html_english)
+        sizePolicy.setHeightForWidth(self.toolBox_eng.sizePolicy().hasHeightForWidth())
+        self.toolBox_eng.setSizePolicy(sizePolicy)
+        self.toolBox_eng.setMinimumSize(QtCore.QSize(300, 0))
+        font = QtGui.QFont()
+        font.setFamily("Century Schoolbook")
+        font.setPointSize(9)
+        self.toolBox_eng.setFont(font)
+        self.toolBox_eng.setStyleSheet("")
+        self.toolBox_eng.setObjectName("toolBox_eng")
+        self.page_eng_html = QtWidgets.QWidget()
+        self.page_eng_html.setGeometry(QtCore.QRect(0, 0, 453, 408))
+        self.page_eng_html.setObjectName("page_eng_html")
+        self.gridLayout_6 = QtWidgets.QGridLayout(self.page_eng_html)
+        self.gridLayout_6.setObjectName("gridLayout_6")
+        self.lineEdit_search_eng = QtWidgets.QLineEdit(self.page_eng_html)
+        self.lineEdit_search_eng.setObjectName("lineEdit_search_eng")
+        self.gridLayout_6.addWidget(self.lineEdit_search_eng, 0, 0, 1, 1)
+        self.textEdit_eng = QtWidgets.QTextEdit(self.page_eng_html)
         self.textEdit_eng.setMinimumSize(QtCore.QSize(0, 0))
         self.textEdit_eng.setObjectName("textEdit_eng")
-        self.gridLayout_5.addWidget(self.textEdit_eng, 1, 0, 1, 1)
-        self.lineEdit_search_eng = QtWidgets.QLineEdit(self.html_english)
-        self.lineEdit_search_eng.setObjectName("lineEdit_search_eng")
-        self.gridLayout_5.addWidget(self.lineEdit_search_eng, 0, 0, 1, 1)
-        self.toolBox.addItem(self.html_english, "")
-        self.rich_text_english = QtWidgets.QWidget()
-        self.rich_text_english.setGeometry(QtCore.QRect(0, 0, 549, 410))
-        self.rich_text_english.setObjectName("rich_text_english")
-        self.gridLayout_4 = QtWidgets.QGridLayout(self.rich_text_english)
-        self.gridLayout_4.setObjectName("gridLayout_4")
-        self.textEdit_eng_formatted = QtWidgets.QTextEdit(self.rich_text_english)
+        self.gridLayout_6.addWidget(self.textEdit_eng, 1, 0, 1, 1)
+        self.toolBox_eng.addItem(self.page_eng_html, "")
+        self.page_eng_formatted = QtWidgets.QWidget()
+        self.page_eng_formatted.setGeometry(QtCore.QRect(0, 0, 453, 407))
+        self.page_eng_formatted.setObjectName("page_eng_formatted")
+        self.gridLayout_9 = QtWidgets.QGridLayout(self.page_eng_formatted)
+        self.gridLayout_9.setObjectName("gridLayout_9")
+        self.textEdit_eng_formatted = QtWidgets.QTextEdit(self.page_eng_formatted)
         self.textEdit_eng_formatted.setMinimumSize(QtCore.QSize(0, 0))
         self.textEdit_eng_formatted.setReadOnly(True)
         self.textEdit_eng_formatted.setObjectName("textEdit_eng_formatted")
-        self.gridLayout_4.addWidget(self.textEdit_eng_formatted, 0, 0, 1, 1)
-        self.toolBox.addItem(self.rich_text_english, "")
-        self.verticalLayout.addWidget(self.toolBox)
-        self.horizontalLayout_2.addLayout(self.verticalLayout)
-        self.verticalLayout_trans_output = QtWidgets.QVBoxLayout()
-        self.verticalLayout_trans_output.setObjectName("verticalLayout_trans_output")
-        self.toolBox_2 = QtWidgets.QToolBox(self.tab)
-        self.toolBox_2.setMinimumSize(QtCore.QSize(300, 0))
-        self.toolBox_2.setStyleSheet("QToolBox::tab {\n"
-"    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
-"                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);\n"
-"    border: 2px solid #C4C4C3;\n"
-"    border-bottom-color: #C2C7CB; /* same as the pane color */\n"
-"    border-top-left-radius: 4px;\n"
-"    border-top-right-radius: 4px;\n"
-"}\n"
-"\n"
-"QToolBox::tab:selected, QToolBox::tab:hover {\n"
-"    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                stop: 0 #fafafa, stop: 0.4 #f4f4f4,\n"
-"                                stop: 0.5 #e7e7e7, stop: 1.0 #fafafa);\n"
-"}\n"
-"\n"
-"QToolBox::tab:selected {\n"
-"    border-color: #9B9B9B;\n"
-"    border-bottom-color: #C2C7CB; /* same as pane color */\n"
-"}")
-        self.toolBox_2.setObjectName("toolBox_2")
-        self.page_3 = QtWidgets.QWidget()
-        self.page_3.setGeometry(QtCore.QRect(0, 0, 549, 410))
-        self.page_3.setObjectName("page_3")
-        self.gridLayout_6 = QtWidgets.QGridLayout(self.page_3)
-        self.gridLayout_6.setObjectName("gridLayout_6")
-        self.textEdit_trans = QtWidgets.QTextEdit(self.page_3)
+        self.gridLayout_9.addWidget(self.textEdit_eng_formatted, 0, 0, 1, 1)
+        self.toolBox_eng.addItem(self.page_eng_formatted, "")
+        self.horizontalLayout.addWidget(self.toolBox_eng)
+        self.toolBox_trans = QtWidgets.QToolBox(self.tab_html)
+        self.toolBox_trans.setMinimumSize(QtCore.QSize(300, 0))
+        font = QtGui.QFont()
+        font.setFamily("Century Schoolbook")
+        font.setPointSize(9)
+        self.toolBox_trans.setFont(font)
+        self.toolBox_trans.setStyleSheet("")
+        self.toolBox_trans.setObjectName("toolBox_trans")
+        self.page_trans_html = QtWidgets.QWidget()
+        self.page_trans_html.setGeometry(QtCore.QRect(0, 0, 453, 408))
+        self.page_trans_html.setObjectName("page_trans_html")
+        self.gridLayout_7 = QtWidgets.QGridLayout(self.page_trans_html)
+        self.gridLayout_7.setObjectName("gridLayout_7")
+        self.lineEdit_search_trans = QtWidgets.QLineEdit(self.page_trans_html)
+        self.lineEdit_search_trans.setObjectName("lineEdit_search_trans")
+        self.gridLayout_7.addWidget(self.lineEdit_search_trans, 0, 0, 1, 1)
+        self.textEdit_trans = QtWidgets.QTextEdit(self.page_trans_html)
         self.textEdit_trans.setMinimumSize(QtCore.QSize(0, 0))
         self.textEdit_trans.setObjectName("textEdit_trans")
-        self.gridLayout_6.addWidget(self.textEdit_trans, 1, 0, 1, 1)
-        self.lineEdit_search_trans = QtWidgets.QLineEdit(self.page_3)
-        self.lineEdit_search_trans.setObjectName("lineEdit_search_trans")
-        self.gridLayout_6.addWidget(self.lineEdit_search_trans, 0, 0, 1, 1)
-        self.toolBox_2.addItem(self.page_3, "")
-        self.page_4 = QtWidgets.QWidget()
-        self.page_4.setGeometry(QtCore.QRect(0, 0, 89, 89))
-        self.page_4.setObjectName("page_4")
-        self.gridLayout_7 = QtWidgets.QGridLayout(self.page_4)
-        self.gridLayout_7.setObjectName("gridLayout_7")
-        self.textEdit_trans_formatted = QtWidgets.QTextEdit(self.page_4)
+        self.gridLayout_7.addWidget(self.textEdit_trans, 1, 0, 1, 1)
+        self.toolBox_trans.addItem(self.page_trans_html, "")
+        self.page_trans_formatted = QtWidgets.QWidget()
+        self.page_trans_formatted.setGeometry(QtCore.QRect(0, 0, 453, 407))
+        self.page_trans_formatted.setObjectName("page_trans_formatted")
+        self.gridLayout_8 = QtWidgets.QGridLayout(self.page_trans_formatted)
+        self.gridLayout_8.setObjectName("gridLayout_8")
+        self.textEdit_trans_formatted = QtWidgets.QTextEdit(self.page_trans_formatted)
         self.textEdit_trans_formatted.setMinimumSize(QtCore.QSize(0, 0))
         self.textEdit_trans_formatted.setReadOnly(True)
         self.textEdit_trans_formatted.setObjectName("textEdit_trans_formatted")
-        self.gridLayout_7.addWidget(self.textEdit_trans_formatted, 0, 0, 1, 1)
-        self.toolBox_2.addItem(self.page_4, "")
-        self.verticalLayout_trans_output.addWidget(self.toolBox_2)
-        self.horizontalLayout_2.addLayout(self.verticalLayout_trans_output)
-        self.verticalLayout_3.addLayout(self.horizontalLayout_2)
-        self.gridLayout_10.addLayout(self.verticalLayout_3, 0, 0, 1, 1)
-        self.tabWidget.addTab(self.tab, "")
-        self.verticalLayout_2.addWidget(self.tabWidget)
-        self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        self.gridLayout_8.addWidget(self.textEdit_trans_formatted, 0, 0, 1, 1)
+        self.toolBox_trans.addItem(self.page_trans_formatted, "")
+        self.horizontalLayout.addWidget(self.toolBox_trans)
+        self.gridLayout_5.addLayout(self.horizontalLayout, 0, 0, 1, 1)
+        self.tabWidget.addTab(self.tab_html, "")
+        self.verticalLayout_tab_and_buttons.addWidget(self.tabWidget)
+        self.horizontalLayout_export_import_buttons = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_export_import_buttons.setObjectName("horizontalLayout_export_import_buttons")
         self.pushButton_export = QtWidgets.QPushButton(self.centralwidget)
+        font = QtGui.QFont()
+        font.setFamily("Century Schoolbook")
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton_export.setFont(font)
         self.pushButton_export.setObjectName("pushButton_export")
-        self.horizontalLayout_3.addWidget(self.pushButton_export)
+        self.horizontalLayout_export_import_buttons.addWidget(self.pushButton_export)
         self.pushButton_import = QtWidgets.QPushButton(self.centralwidget)
+        font = QtGui.QFont()
+        font.setFamily("Century Schoolbook")
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton_import.setFont(font)
         self.pushButton_import.setObjectName("pushButton_import")
-        self.horizontalLayout_3.addWidget(self.pushButton_import)
-        self.verticalLayout_2.addLayout(self.horizontalLayout_3)
+        self.horizontalLayout_export_import_buttons.addWidget(self.pushButton_import)
+        self.verticalLayout_tab_and_buttons.addLayout(self.horizontalLayout_export_import_buttons)
         self.pushButton_generate = QtWidgets.QPushButton(self.centralwidget)
+        font = QtGui.QFont()
+        font.setFamily("Century Schoolbook")
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton_generate.setFont(font)
         self.pushButton_generate.setObjectName("pushButton_generate")
-        self.verticalLayout_2.addWidget(self.pushButton_generate)
-        self.gridLayout_9.addLayout(self.verticalLayout_2, 0, 0, 1, 1)
+        self.verticalLayout_tab_and_buttons.addWidget(self.pushButton_generate)
+        self.gridLayout_4.addLayout(self.verticalLayout_tab_and_buttons, 0, 0, 1, 1)
         ILX_translator_window.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(ILX_translator_window)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1150, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 952, 20))
+        self.menubar.setStyleSheet("")
         self.menubar.setObjectName("menubar")
         self.menuFile = QtWidgets.QMenu(self.menubar)
+        self.menuFile.setMinimumSize(QtCore.QSize(0, 0))
         self.menuFile.setObjectName("menuFile")
         ILX_translator_window.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(ILX_translator_window)
@@ -276,8 +346,8 @@ class Ui_ILX_translator_window(object):
 
         self.retranslateUi(ILX_translator_window)
         self.tabWidget.setCurrentIndex(1)
-        self.toolBox.setCurrentIndex(0)
-        self.toolBox_2.setCurrentIndex(0)
+        self.toolBox_eng.setCurrentIndex(0)
+        self.toolBox_trans.setCurrentIndex(0)
         self.textEdit_eng.textChanged.connect(ILX_translator_window.textEdit_html_eng_changed) # type: ignore
         self.pushButton_generate.clicked.connect(ILX_translator_window.button_clicked_generate) # type: ignore
         self.textEdit_trans.textChanged.connect(ILX_translator_window.textEdit_html_trans_changed) # type: ignore
@@ -292,19 +362,18 @@ class Ui_ILX_translator_window(object):
     def retranslateUi(self, ILX_translator_window):
         _translate = QtCore.QCoreApplication.translate
         ILX_translator_window.setWindowTitle(_translate("ILX_translator_window", "MainWindow"))
-        self.groupBox.setTitle(_translate("ILX_translator_window", "Notification Template:"))
+        self.groupBox_notification_template.setTitle(_translate("ILX_translator_window", "Notification Template:"))
         self.lineEdit_notification_template.setText(_translate("ILX_translator_window", "Unspecified_notification_template"))
         self.groupBox_eng_values.setTitle(_translate("ILX_translator_window", "English"))
         self.groupBox_trans_values.setTitle(_translate("ILX_translator_window", "Translation"))
-        self.label_text_over_500px.setText(_translate("ILX_translator_window", "[Warning] Sentence width extends Line Edit (>500 px)"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("ILX_translator_window", "Translations"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_translations), _translate("ILX_translator_window", "Translations"))
         self.lineEdit_search_eng.setPlaceholderText(_translate("ILX_translator_window", "Search..."))
-        self.toolBox.setItemText(self.toolBox.indexOf(self.html_english), _translate("ILX_translator_window", "HTML English"))
-        self.toolBox.setItemText(self.toolBox.indexOf(self.rich_text_english), _translate("ILX_translator_window", "HTML- Formatted - English"))
+        self.toolBox_eng.setItemText(self.toolBox_eng.indexOf(self.page_eng_html), _translate("ILX_translator_window", "HTML English"))
+        self.toolBox_eng.setItemText(self.toolBox_eng.indexOf(self.page_eng_formatted), _translate("ILX_translator_window", "HTML- Formatted - English"))
         self.lineEdit_search_trans.setPlaceholderText(_translate("ILX_translator_window", "Search...."))
-        self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.page_3), _translate("ILX_translator_window", "HTML Translated"))
-        self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.page_4), _translate("ILX_translator_window", "HTML - Formatted - Translated"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("ILX_translator_window", "HTML replacer"))
+        self.toolBox_trans.setItemText(self.toolBox_trans.indexOf(self.page_trans_html), _translate("ILX_translator_window", "HTML Translated"))
+        self.toolBox_trans.setItemText(self.toolBox_trans.indexOf(self.page_trans_formatted), _translate("ILX_translator_window", "HTML - Formatted - Translated"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_html), _translate("ILX_translator_window", "HTML replacer"))
         self.pushButton_export.setText(_translate("ILX_translator_window", "Export\n"
 "Translation"))
         self.pushButton_import.setText(_translate("ILX_translator_window", "Import\n"
