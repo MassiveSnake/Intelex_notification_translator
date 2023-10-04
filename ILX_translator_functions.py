@@ -7,7 +7,6 @@ import re
 import math
 
 
-
 def messagebox(errortype, text, info):
     msg = QMessageBox()
     msg.setIcon(QMessageBox.Warning)
@@ -17,21 +16,23 @@ def messagebox(errortype, text, info):
     msg.exec()
     return None
 
+
 class MyMainWindow(QMainWindow, Ui_ILX_translator_window):
     # Define the shared maximum_lineEdit_width as a class-level variable
     maximum_lineEdit_width = 500
+
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setupUi(self)
 
-        #self.label_text_over_500px.hide()
+        # self.label_text_over_500px.hide()
         # Creating callable layouts to add and delete lineEdits in
         self.layout_eng = QVBoxLayout(self.groupBox_eng_values)
         self.layout_trans = QVBoxLayout(self.groupBox_trans_values)
 
-# ---------------------------------------------------------------
-# ---------------------- SEARCHBAR METHODS ----------------------
-# ---------------------------------------------------------------
+        # ---------------------------------------------------------------
+        # ---------------------- SEARCHBAR METHODS ----------------------
+        # ---------------------------------------------------------------
 
         # Timers makes sure that the Search Bar are not triggered when typed, but when the user has stopped typing
         # Allowing reduced resource/computing consumption
@@ -87,9 +88,9 @@ class MyMainWindow(QMainWindow, Ui_ILX_translator_window):
                 cursor.mergeCharFormat(format)
                 cursor = textEdit.document().find(words, cursor)
 
-# --------------------------------------------------------------
-# ---------------------- MENU BAR METHODS ----------------------
-# --------------------------------------------------------------
+    # --------------------------------------------------------------
+    # ---------------------- MENU BAR METHODS ----------------------
+    # --------------------------------------------------------------
     def Save_html_triggered(self):
         # TODO: Except textEdit_eng is empty:
         filename, _ = QFileDialog.getSaveFileName(self, "Save html As", "",
@@ -108,13 +109,12 @@ class MyMainWindow(QMainWindow, Ui_ILX_translator_window):
             with open(filename, 'r') as f:
                 html = f.read()
             self.textEdit_eng.setText(html)
+            basename = QFileInfo(filename).baseName()
+            self.lineEdit_notification_template.setText(basename)
 
-        name = QFileInfo(filename).fileName()
-        self.lineEdit_notification_template.setText(name)
-
-# --------------------------------------------------------------------
-# ----------------------TRANSLATION TAB METHODS ----------------------
-# --------------------------------------------------------------------
+    # --------------------------------------------------------------------
+    # ----------------------TRANSLATION TAB METHODS ----------------------
+    # --------------------------------------------------------------------
 
     def delete_textEdits(self):
         """
@@ -128,6 +128,7 @@ class MyMainWindow(QMainWindow, Ui_ILX_translator_window):
                 widget = groupBox_layout.itemAt(i).widget()
                 if widget is not None:
                     widget.deleteLater()
+
     def button_clicked_export(self):
         # TODO: error message when empty
         """
@@ -178,14 +179,14 @@ class MyMainWindow(QMainWindow, Ui_ILX_translator_window):
         :return: Populates LineEdits in Translation tab
         """
         filename = QFileDialog.getOpenFileName(self, 'Open File', "", "Excel (*.xls *.xlsx)")
-        if filename[0] == '': # Does nothing when no file is passed
+        if filename[0] == '':  # Does nothing when no file is passed
             pass
         else:
             df = pd.read_excel(filename[0])
             self.delete_textEdits()
             line_num = 1  # Unused counter, to check number of LineEdits created
 
-            #self.label_text_over_500px.hide()
+            # self.label_text_over_500px.hide()
             for index, row in df.iterrows():
                 eng_text = str(row["English"])
                 trans_text = str(row["Translation"])
@@ -202,16 +203,17 @@ class MyMainWindow(QMainWindow, Ui_ILX_translator_window):
                 self.layout_eng.addWidget(text_edit_eng)  # Adds LineEdit to QVBoxLayout (groupBox_eng_values)
                 self.layout_trans.addWidget(text_edit_trans)
                 line_num += 1
-# --------------------------------------------------------------
-# ---------------------- HTML TAB METHODS ----------------------
-# --------------------------------------------------------------
+
+    # --------------------------------------------------------------
+    # ---------------------- HTML TAB METHODS ----------------------
+    # --------------------------------------------------------------
     def textEdit_html_eng_changed(self):
         """
         Method is triggered everytime the text within Self.textEdit_eng is changed.
         This textEdit is meant to give the Original (english) html
         Then it will:
         1): Convert the HTML into rich text
-        2): Sets rich text in textEdit_eng_formatted
+        2): Sets rich text in textEdit_eng_rich_text
         3): Recognize Line Breaks to create multiple LineEdits
         4): Remove spaces, and recognize text within {# and } (ILX field names)
         
@@ -220,18 +222,18 @@ class MyMainWindow(QMainWindow, Ui_ILX_translator_window):
         -Adds ILX field text ({#[text]} to Translation LineEdits
         """""
         html = self.textEdit_eng.toPlainText()  # Convert HTML into Rich text
-        self.textEdit_eng_formatted.setHtml(html)  # Sets rich text in TextEdit
+        self.textEdit_eng_rich_text.setHtml(html)  # Sets rich text in TextEdit
         document = QTextDocument()
         document.setHtml(html)
-        formatted_text = document.toPlainText()  # Get the formatted HTML text without HTML tags
+        rich_text_text = document.toPlainText()  # Get the rich_text HTML text without HTML tags
 
         # Split lines using re.split() with a pattern that matches different types of line breaks
-        lines = re.split(r'[\r\n]', formatted_text)
+        lines = re.split(r'[\r\n]', rich_text_text)
         self.delete_textEdits()
 
         line_num = 1
         # Add new LineEdit widgets to both groupBox and set text
-        #self.label_text_over_500px.hide()
+        # self.label_text_over_500px.hide()
         for line in lines:
             line = line.strip()  # Remove leading and trailing spaces
             if line:
@@ -260,14 +262,14 @@ class MyMainWindow(QMainWindow, Ui_ILX_translator_window):
         Converts translated html into Rich text
         This textEdit allows easy comparison with original,
         and quickly validates if the translation went well
-        :return:  Translated Rich text in textEdit_trans_formatted
+        :return:  Translated Rich text in textEdit_trans_rich_text
         """
         html = self.textEdit_trans.toPlainText()
-        self.textEdit_trans_formatted.setHtml(html)
+        self.textEdit_trans_rich_text.setHtml(html)
 
-# -----------------------------------------------------------------------------
-# ---------------------- REPLACEMENT/TRANSLATION METHODS ----------------------
-# -----------------------------------------------------------------------------
+    # -----------------------------------------------------------------------------
+    # ---------------------- REPLACEMENT/TRANSLATION METHODS ----------------------
+    # -----------------------------------------------------------------------------
     def create_dictionary(self, error):
         """
         Creates a python Dictionary based from LineEdits in Translation tab.
@@ -283,7 +285,7 @@ class MyMainWindow(QMainWindow, Ui_ILX_translator_window):
             if text_edit_eng and text_edit_trans:  # Additional check, to see if both items/objects exist
                 eng_text = text_edit_eng.text()
                 trans_text = text_edit_trans.text()
-                if trans_text == "" and error == True:
+                if trans_text == "" and error:
                     errortype = "Missing Translation"
                     text = "Warning: Missing Translation"
                     info = "In the Translation tab an English value has not been translated.\n" \
@@ -320,6 +322,7 @@ class MyMainWindow(QMainWindow, Ui_ILX_translator_window):
 
         self.textEdit_trans.setPlainText(cleaned_html)
 
+
 class AutoResizingLineEdit(QLineEdit):
     """
     This class Autoresizes the LineEdits in the Translations tab.
@@ -327,11 +330,12 @@ class AutoResizingLineEdit(QLineEdit):
     """
     # Use the shared maximum_lineEdit_width from MyMainWindow
     maximum_lineEdit_width = MyMainWindow.maximum_lineEdit_width
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         self.setMinimumHeight(20)  # Set a minimum height
-        self.setMaximumWidth(self.maximum_lineEdit_width-2)
+        self.setMaximumWidth(self.maximum_lineEdit_width - 2)
         # Set maximum size 2 below maximum size LineEdit,
         # keeps sizing sortoff equal while allowing error label to popup
         self.textChanged.connect(self.updateSize)

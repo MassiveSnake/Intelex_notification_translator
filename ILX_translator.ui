@@ -23,62 +23,73 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>ILX html Replacer</string>
+  </property>
+  <property name="windowOpacity">
+   <double>1.000000000000000</double>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true">QMenu, QMenuBar {
+   <string notr="true">QMainWindow{
+	background-color: rgb(255, 255, 255); /*White*/
+}
+QWidget#centralwidget{
+	background-color: rgb(255, 255, 255); /*White*/
+}
+QMenu, QMenuBar {
 	width: 200px;
     background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
-                                      stop:0 lightgray, stop:1 #9B9B9B);
+                                      stop:0 #e4e4e4, stop:1#ffde9b); /*LightGray top - Gold bottom*/
 }
 QMenu::item, QMenuBar::item {
 	width: 200px;
     spacing: 3px;           
     padding: 2px 10px;
-    background-color:  #C2C7CB;
-    color: rgb(0,0,0);  
+    background-color:  #C2C7CB; /*Dark Grey*/
+    color: rgb(0,0,0);   /*Text = Black */
     border-radius: 5px;
 }
 QMenu::item::selected, QMenuBar::item::selected {    
-    background-color:  #ffde9b;
+    background-color:  #ffde9b; /*Gold*/
 }
 QMenu::item::pressed, QMenuBar::item::pressed {
-    background: #ffde9b;
+    background: #ffde9b; /*Gold*/
 }
-
-QWidget {	
-background-color:  qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0.2 #ffffff, stop: 0.5 #ffde9b,
-                                stop: 0.5 #ffde9b, stop: 0.8 #ffffff);
+QWidget#tab_translations, QWidget#tab_html{
+	background-color:  qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0.2 #ffffff, stop: 0.5 #ffde9b, /*White top - Gold mid*/
+                                stop: 0.5 #ffde9b, stop: 0.8 #ffffff); /*Gold mid - White bottom*/
 }
 QToolBox::tab{
-	background-color: rgb(228, 228, 228);
-
+	background-color: #e4e4e4; /*LightGray*/
+}
+QWidget#page_eng_html, QWidget#page_eng_rich_text, QWidget#page_trans_html, QWidget#page_trans_rich_text, QWidget#scrollAreaWidgetContents {
+	background-color: rgb(255, 255, 255); /*White*/
 }
 QToolBox::tab::hover, QToolBox::tab::selected{
-	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffde9b, stop:0.5 rgba(255, 255, 255, 255));
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffde9b, stop:0.5 rgba(255, 255, 255, 255)); /*Gold left - White right*/
 }
 QToolBox::tab:selected {
 	border-top : 2px solid;
-    border-color: #9B9B9B;
+    border-color: #C2C7CB; /*DarkGray*/
 }
 QToolBox::tab::hover {
 	border : 2px solid;
-    border-color: #9B9B9B;
+    border-color: #C2C7CB; /*DarkGray*/
 }
-
 QGroupBox{
-background-color: #DDDDDD;
+background-color: #e4e4e4; /*LightGray*/
 }
 QTextEdit{
-background-color: #ebebeb;
+background-color: #e4e4e4; /*LightGray*/
 }
 QLineEdit{
-	background-color: rgb(255, 255, 255);
+	background-color: rgb(255, 255, 255); /*White*/
 }
-
 QTabWidget::pane { /* The tab widget frame */
-    border-top: 2px solid #C2C7CB;
+    border-top: 2px solid #C2C7CB; /*DarkGray*/
     position: absolute;
     top: -0.5em;
 }
@@ -205,7 +216,7 @@ QPushButton {
                <x>0</x>
                <y>0</y>
                <width>912</width>
-               <height>468</height>
+               <height>453</height>
               </rect>
              </property>
              <layout class="QGridLayout" name="gridLayout_3">
@@ -320,7 +331,7 @@ QPushButton {
                  <x>0</x>
                  <y>0</y>
                  <width>453</width>
-                 <height>408</height>
+                 <height>393</height>
                 </rect>
                </property>
                <attribute name="label">
@@ -346,21 +357,21 @@ QPushButton {
                 </item>
                </layout>
               </widget>
-              <widget class="QWidget" name="page_eng_formatted">
+              <widget class="QWidget" name="page_eng_rich_text">
                <property name="geometry">
                 <rect>
                  <x>0</x>
                  <y>0</y>
                  <width>453</width>
-                 <height>407</height>
+                 <height>393</height>
                 </rect>
                </property>
                <attribute name="label">
-                <string>HTML- Formatted - English</string>
+                <string>Rich Text - English</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_9">
                 <item row="0" column="0">
-                 <widget class="QTextEdit" name="textEdit_eng_formatted">
+                 <widget class="QTextEdit" name="textEdit_eng_rich_text">
                   <property name="minimumSize">
                    <size>
                     <width>0</width>
@@ -402,7 +413,7 @@ QPushButton {
                  <x>0</x>
                  <y>0</y>
                  <width>453</width>
-                 <height>408</height>
+                 <height>393</height>
                 </rect>
                </property>
                <attribute name="label">
@@ -428,21 +439,21 @@ QPushButton {
                 </item>
                </layout>
               </widget>
-              <widget class="QWidget" name="page_trans_formatted">
+              <widget class="QWidget" name="page_trans_rich_text">
                <property name="geometry">
                 <rect>
                  <x>0</x>
                  <y>0</y>
                  <width>453</width>
-                 <height>407</height>
+                 <height>393</height>
                 </rect>
                </property>
                <attribute name="label">
-                <string>HTML - Formatted - Translated</string>
+                <string>Rich Text - Translated</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_8">
                 <item row="0" column="0">
-                 <widget class="QTextEdit" name="textEdit_trans_formatted">
+                 <widget class="QTextEdit" name="textEdit_trans_rich_text">
                   <property name="minimumSize">
                    <size>
                     <width>0</width>
@@ -478,7 +489,8 @@ QPushButton {
           </property>
           <property name="text">
            <string>Export
-Translation</string>
+Translation
+Template</string>
           </property>
          </widget>
         </item>
@@ -494,7 +506,8 @@ Translation</string>
           </property>
           <property name="text">
            <string>Import
-Translation</string>
+Translation
+Template</string>
           </property>
          </widget>
         </item>

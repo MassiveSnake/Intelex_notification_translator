@@ -20,59 +20,66 @@ class Ui_ILX_translator_window(object):
         font.setFamily("Century Schoolbook")
         font.setPointSize(9)
         ILX_translator_window.setFont(font)
-        ILX_translator_window.setStyleSheet("QMenu, QMenuBar {\n"
+        ILX_translator_window.setWindowOpacity(1.0)
+        ILX_translator_window.setAutoFillBackground(False)
+        ILX_translator_window.setStyleSheet("QMainWindow{\n"
+"    background-color: rgb(255, 255, 255); /*White*/\n"
+"}\n"
+"QWidget#centralwidget{\n"
+"    background-color: rgb(255, 255, 255); /*White*/\n"
+"}\n"
+"QMenu, QMenuBar {\n"
 "    width: 200px;\n"
 "    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
-"                                      stop:0 lightgray, stop:1 #9B9B9B);\n"
+"                                      stop:0 #e4e4e4, stop:1#ffde9b); /*LightGray top - Gold bottom*/\n"
 "}\n"
 "QMenu::item, QMenuBar::item {\n"
 "    width: 200px;\n"
 "    spacing: 3px;           \n"
 "    padding: 2px 10px;\n"
-"    background-color:  #C2C7CB;\n"
-"    color: rgb(0,0,0);  \n"
+"    background-color:  #C2C7CB; /*Dark Grey*/\n"
+"    color: rgb(0,0,0);   /*Text = Black */\n"
 "    border-radius: 5px;\n"
 "}\n"
 "QMenu::item::selected, QMenuBar::item::selected {    \n"
-"    background-color:  #ffde9b;\n"
+"    background-color:  #ffde9b; /*Gold*/\n"
 "}\n"
 "QMenu::item::pressed, QMenuBar::item::pressed {\n"
-"    background: #ffde9b;\n"
+"    background: #ffde9b; /*Gold*/\n"
 "}\n"
-"\n"
-"QWidget {    \n"
-"background-color:  qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                stop: 0.2 #ffffff, stop: 0.5 #ffde9b,\n"
-"                                stop: 0.5 #ffde9b, stop: 0.8 #ffffff);\n"
+"QWidget#tab_translations, QWidget#tab_html{\n"
+"    background-color:  qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                stop: 0.2 #ffffff, stop: 0.5 #ffde9b, /*White top - Gold mid*/\n"
+"                                stop: 0.5 #ffde9b, stop: 0.8 #ffffff); /*Gold mid - White bottom*/\n"
 "}\n"
 "QToolBox::tab{\n"
-"    background-color: rgb(228, 228, 228);\n"
-"\n"
+"    background-color: #e4e4e4; /*LightGray*/\n"
+"}\n"
+"QWidget#page_eng_html, QWidget#page_eng_rich_text, QWidget#page_trans_html, QWidget#page_trans_rich_text, QWidget#scrollAreaWidgetContents {\n"
+"    background-color: rgb(255, 255, 255); /*White*/\n"
 "}\n"
 "QToolBox::tab::hover, QToolBox::tab::selected{\n"
-"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffde9b, stop:0.5 rgba(255, 255, 255, 255));\n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffde9b, stop:0.5 rgba(255, 255, 255, 255)); /*Gold left - White right*/\n"
 "}\n"
 "QToolBox::tab:selected {\n"
 "    border-top : 2px solid;\n"
-"    border-color: #9B9B9B;\n"
+"    border-color: #C2C7CB; /*DarkGray*/\n"
 "}\n"
 "QToolBox::tab::hover {\n"
 "    border : 2px solid;\n"
-"    border-color: #9B9B9B;\n"
+"    border-color: #C2C7CB; /*DarkGray*/\n"
 "}\n"
-"\n"
 "QGroupBox{\n"
-"background-color: #DDDDDD;\n"
+"background-color: #e4e4e4; /*LightGray*/\n"
 "}\n"
 "QTextEdit{\n"
-"background-color: #ebebeb;\n"
+"background-color: #e4e4e4; /*LightGray*/\n"
 "}\n"
 "QLineEdit{\n"
-"    background-color: rgb(255, 255, 255);\n"
+"    background-color: rgb(255, 255, 255); /*White*/\n"
 "}\n"
-"\n"
 "QTabWidget::pane { /* The tab widget frame */\n"
-"    border-top: 2px solid #C2C7CB;\n"
+"    border-top: 2px solid #C2C7CB; /*DarkGray*/\n"
 "    position: absolute;\n"
 "    top: -0.5em;\n"
 "}\n"
@@ -169,7 +176,7 @@ class Ui_ILX_translator_window(object):
         self.scrollArea_translation_lineEdits.setWidgetResizable(True)
         self.scrollArea_translation_lineEdits.setObjectName("scrollArea_translation_lineEdits")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 912, 468))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 912, 453))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.gridLayout_3 = QtWidgets.QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_3.setObjectName("gridLayout_3")
@@ -233,7 +240,7 @@ class Ui_ILX_translator_window(object):
         self.toolBox_eng.setStyleSheet("")
         self.toolBox_eng.setObjectName("toolBox_eng")
         self.page_eng_html = QtWidgets.QWidget()
-        self.page_eng_html.setGeometry(QtCore.QRect(0, 0, 453, 408))
+        self.page_eng_html.setGeometry(QtCore.QRect(0, 0, 453, 393))
         self.page_eng_html.setObjectName("page_eng_html")
         self.gridLayout_6 = QtWidgets.QGridLayout(self.page_eng_html)
         self.gridLayout_6.setObjectName("gridLayout_6")
@@ -245,17 +252,17 @@ class Ui_ILX_translator_window(object):
         self.textEdit_eng.setObjectName("textEdit_eng")
         self.gridLayout_6.addWidget(self.textEdit_eng, 1, 0, 1, 1)
         self.toolBox_eng.addItem(self.page_eng_html, "")
-        self.page_eng_formatted = QtWidgets.QWidget()
-        self.page_eng_formatted.setGeometry(QtCore.QRect(0, 0, 453, 407))
-        self.page_eng_formatted.setObjectName("page_eng_formatted")
-        self.gridLayout_9 = QtWidgets.QGridLayout(self.page_eng_formatted)
+        self.page_eng_rich_text = QtWidgets.QWidget()
+        self.page_eng_rich_text.setGeometry(QtCore.QRect(0, 0, 453, 393))
+        self.page_eng_rich_text.setObjectName("page_eng_rich_text")
+        self.gridLayout_9 = QtWidgets.QGridLayout(self.page_eng_rich_text)
         self.gridLayout_9.setObjectName("gridLayout_9")
-        self.textEdit_eng_formatted = QtWidgets.QTextEdit(self.page_eng_formatted)
-        self.textEdit_eng_formatted.setMinimumSize(QtCore.QSize(0, 0))
-        self.textEdit_eng_formatted.setReadOnly(True)
-        self.textEdit_eng_formatted.setObjectName("textEdit_eng_formatted")
-        self.gridLayout_9.addWidget(self.textEdit_eng_formatted, 0, 0, 1, 1)
-        self.toolBox_eng.addItem(self.page_eng_formatted, "")
+        self.textEdit_eng_rich_text = QtWidgets.QTextEdit(self.page_eng_rich_text)
+        self.textEdit_eng_rich_text.setMinimumSize(QtCore.QSize(0, 0))
+        self.textEdit_eng_rich_text.setReadOnly(True)
+        self.textEdit_eng_rich_text.setObjectName("textEdit_eng_rich_text")
+        self.gridLayout_9.addWidget(self.textEdit_eng_rich_text, 0, 0, 1, 1)
+        self.toolBox_eng.addItem(self.page_eng_rich_text, "")
         self.horizontalLayout.addWidget(self.toolBox_eng)
         self.toolBox_trans = QtWidgets.QToolBox(self.tab_html)
         self.toolBox_trans.setMinimumSize(QtCore.QSize(300, 0))
@@ -266,7 +273,7 @@ class Ui_ILX_translator_window(object):
         self.toolBox_trans.setStyleSheet("")
         self.toolBox_trans.setObjectName("toolBox_trans")
         self.page_trans_html = QtWidgets.QWidget()
-        self.page_trans_html.setGeometry(QtCore.QRect(0, 0, 453, 408))
+        self.page_trans_html.setGeometry(QtCore.QRect(0, 0, 453, 393))
         self.page_trans_html.setObjectName("page_trans_html")
         self.gridLayout_7 = QtWidgets.QGridLayout(self.page_trans_html)
         self.gridLayout_7.setObjectName("gridLayout_7")
@@ -278,17 +285,17 @@ class Ui_ILX_translator_window(object):
         self.textEdit_trans.setObjectName("textEdit_trans")
         self.gridLayout_7.addWidget(self.textEdit_trans, 1, 0, 1, 1)
         self.toolBox_trans.addItem(self.page_trans_html, "")
-        self.page_trans_formatted = QtWidgets.QWidget()
-        self.page_trans_formatted.setGeometry(QtCore.QRect(0, 0, 453, 407))
-        self.page_trans_formatted.setObjectName("page_trans_formatted")
-        self.gridLayout_8 = QtWidgets.QGridLayout(self.page_trans_formatted)
+        self.page_trans_rich_text = QtWidgets.QWidget()
+        self.page_trans_rich_text.setGeometry(QtCore.QRect(0, 0, 453, 393))
+        self.page_trans_rich_text.setObjectName("page_trans_rich_text")
+        self.gridLayout_8 = QtWidgets.QGridLayout(self.page_trans_rich_text)
         self.gridLayout_8.setObjectName("gridLayout_8")
-        self.textEdit_trans_formatted = QtWidgets.QTextEdit(self.page_trans_formatted)
-        self.textEdit_trans_formatted.setMinimumSize(QtCore.QSize(0, 0))
-        self.textEdit_trans_formatted.setReadOnly(True)
-        self.textEdit_trans_formatted.setObjectName("textEdit_trans_formatted")
-        self.gridLayout_8.addWidget(self.textEdit_trans_formatted, 0, 0, 1, 1)
-        self.toolBox_trans.addItem(self.page_trans_formatted, "")
+        self.textEdit_trans_rich_text = QtWidgets.QTextEdit(self.page_trans_rich_text)
+        self.textEdit_trans_rich_text.setMinimumSize(QtCore.QSize(0, 0))
+        self.textEdit_trans_rich_text.setReadOnly(True)
+        self.textEdit_trans_rich_text.setObjectName("textEdit_trans_rich_text")
+        self.gridLayout_8.addWidget(self.textEdit_trans_rich_text, 0, 0, 1, 1)
+        self.toolBox_trans.addItem(self.page_trans_rich_text, "")
         self.horizontalLayout.addWidget(self.toolBox_trans)
         self.gridLayout_5.addLayout(self.horizontalLayout, 0, 0, 1, 1)
         self.tabWidget.addTab(self.tab_html, "")
@@ -361,7 +368,7 @@ class Ui_ILX_translator_window(object):
 
     def retranslateUi(self, ILX_translator_window):
         _translate = QtCore.QCoreApplication.translate
-        ILX_translator_window.setWindowTitle(_translate("ILX_translator_window", "MainWindow"))
+        ILX_translator_window.setWindowTitle(_translate("ILX_translator_window", "ILX html Replacer"))
         self.groupBox_notification_template.setTitle(_translate("ILX_translator_window", "Notification Template:"))
         self.lineEdit_notification_template.setText(_translate("ILX_translator_window", "Unspecified_notification_template"))
         self.groupBox_eng_values.setTitle(_translate("ILX_translator_window", "English"))
@@ -369,15 +376,17 @@ class Ui_ILX_translator_window(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_translations), _translate("ILX_translator_window", "Translations"))
         self.lineEdit_search_eng.setPlaceholderText(_translate("ILX_translator_window", "Search..."))
         self.toolBox_eng.setItemText(self.toolBox_eng.indexOf(self.page_eng_html), _translate("ILX_translator_window", "HTML English"))
-        self.toolBox_eng.setItemText(self.toolBox_eng.indexOf(self.page_eng_formatted), _translate("ILX_translator_window", "HTML- Formatted - English"))
+        self.toolBox_eng.setItemText(self.toolBox_eng.indexOf(self.page_eng_rich_text), _translate("ILX_translator_window", "Rich Text - English"))
         self.lineEdit_search_trans.setPlaceholderText(_translate("ILX_translator_window", "Search...."))
         self.toolBox_trans.setItemText(self.toolBox_trans.indexOf(self.page_trans_html), _translate("ILX_translator_window", "HTML Translated"))
-        self.toolBox_trans.setItemText(self.toolBox_trans.indexOf(self.page_trans_formatted), _translate("ILX_translator_window", "HTML - Formatted - Translated"))
+        self.toolBox_trans.setItemText(self.toolBox_trans.indexOf(self.page_trans_rich_text), _translate("ILX_translator_window", "Rich Text - Translated"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_html), _translate("ILX_translator_window", "HTML replacer"))
         self.pushButton_export.setText(_translate("ILX_translator_window", "Export\n"
-"Translation"))
+"Translation\n"
+"Template"))
         self.pushButton_import.setText(_translate("ILX_translator_window", "Import\n"
-"Translation"))
+"Translation\n"
+"Template"))
         self.pushButton_generate.setText(_translate("ILX_translator_window", "Generate\n"
 "HTML"))
         self.menuFile.setTitle(_translate("ILX_translator_window", "File"))
