@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>952</width>
-    <height>722</height>
+    <width>913</width>
+    <height>800</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -106,7 +106,7 @@ QTabBar::tab {
     border-bottom-color: #C2C7CB; /* same as the pane color */
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
-    min-width: 120ex;
+    min-width: 240px;
     padding: 7px;
 }
 QTabBar::tab:selected, QTabBar::tab:hover {
@@ -171,6 +171,12 @@ QPushButton {
       </item>
       <item>
        <widget class="QTabWidget" name="tabWidget">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="font">
          <font>
           <family>Century Schoolbook</family>
@@ -215,8 +221,8 @@ QPushButton {
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>912</width>
-               <height>453</height>
+               <width>873</width>
+               <height>529</height>
               </rect>
              </property>
              <layout class="QGridLayout" name="gridLayout_3">
@@ -330,8 +336,8 @@ QPushButton {
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>453</width>
-                 <height>393</height>
+                 <width>434</width>
+                 <height>471</height>
                 </rect>
                </property>
                <attribute name="label">
@@ -362,8 +368,8 @@ QPushButton {
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>453</width>
-                 <height>393</height>
+                 <width>91</width>
+                 <height>65</height>
                 </rect>
                </property>
                <attribute name="label">
@@ -412,8 +418,8 @@ QPushButton {
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>453</width>
-                 <height>393</height>
+                 <width>433</width>
+                 <height>471</height>
                 </rect>
                </property>
                <attribute name="label">
@@ -444,8 +450,8 @@ QPushButton {
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>453</width>
-                 <height>393</height>
+                 <width>91</width>
+                 <height>65</height>
                 </rect>
                </property>
                <attribute name="label">
@@ -538,8 +544,8 @@ HTML</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>952</width>
-     <height>20</height>
+     <width>913</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -558,7 +564,17 @@ HTML</string>
     <addaction name="actionSave_html"/>
     <addaction name="actionImport_html"/>
    </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="separator"/>
+    <addaction name="actionAbout_QT"/>
+    <addaction name="actionInstructions"/>
+    <addaction name="actionAbout_Program"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuAbout"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionSave_html">
@@ -569,6 +585,21 @@ HTML</string>
   <action name="actionImport_html">
    <property name="text">
     <string>Import English html</string>
+   </property>
+  </action>
+  <action name="actionAbout_QT">
+   <property name="text">
+    <string>About QT</string>
+   </property>
+  </action>
+  <action name="actionInstructions">
+   <property name="text">
+    <string>Instructions</string>
+   </property>
+  </action>
+  <action name="actionAbout_Program">
+   <property name="text">
+    <string>About Program</string>
    </property>
   </action>
  </widget>
@@ -718,6 +749,54 @@ HTML</string>
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>actionAbout_QT</sender>
+   <signal>triggered()</signal>
+   <receiver>ILX_translator_window</receiver>
+   <slot>aboutQT()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>456</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionInstructions</sender>
+   <signal>triggered()</signal>
+   <receiver>ILX_translator_window</receiver>
+   <slot>instructions()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>456</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionAbout_Program</sender>
+   <signal>triggered()</signal>
+   <receiver>ILX_translator_window</receiver>
+   <slot>aboutProgram()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>456</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>button_clicked_apply_num_edits()</slot>
@@ -731,5 +810,8 @@ HTML</string>
   <slot>lineEdit_search_trans_changed()</slot>
   <slot>Save_html_triggered()</slot>
   <slot>Import_html_triggered()</slot>
+  <slot>aboutQT()</slot>
+  <slot>instructions()</slot>
+  <slot>aboutProgram()</slot>
  </slots>
 </ui>

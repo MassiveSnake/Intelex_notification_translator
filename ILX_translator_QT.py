@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_ILX_translator_window(object):
     def setupUi(self, ILX_translator_window):
         ILX_translator_window.setObjectName("ILX_translator_window")
-        ILX_translator_window.resize(952, 722)
+        ILX_translator_window.resize(913, 800)
         ILX_translator_window.setMaximumSize(QtCore.QSize(16777215, 16777215))
         font = QtGui.QFont()
         font.setFamily("Century Schoolbook")
@@ -96,7 +96,7 @@ class Ui_ILX_translator_window(object):
 "    border-bottom-color: #C2C7CB; /* same as the pane color */\n"
 "    border-top-left-radius: 4px;\n"
 "    border-top-right-radius: 4px;\n"
-"    min-width: 120ex;\n"
+"    min-width: 240px;\n"
 "    padding: 7px;\n"
 "}\n"
 "QTabBar::tab:selected, QTabBar::tab:hover {\n"
@@ -149,6 +149,11 @@ class Ui_ILX_translator_window(object):
         self.gridLayout_2.addWidget(self.lineEdit_notification_template, 0, 0, 1, 1)
         self.verticalLayout_tab_and_buttons.addWidget(self.groupBox_notification_template)
         self.tabWidget = QtWidgets.QTabWidget(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.tabWidget.sizePolicy().hasHeightForWidth())
+        self.tabWidget.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Century Schoolbook")
         font.setPointSize(10)
@@ -176,7 +181,7 @@ class Ui_ILX_translator_window(object):
         self.scrollArea_translation_lineEdits.setWidgetResizable(True)
         self.scrollArea_translation_lineEdits.setObjectName("scrollArea_translation_lineEdits")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 912, 453))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 873, 529))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.gridLayout_3 = QtWidgets.QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_3.setObjectName("gridLayout_3")
@@ -240,7 +245,7 @@ class Ui_ILX_translator_window(object):
         self.toolBox_eng.setStyleSheet("")
         self.toolBox_eng.setObjectName("toolBox_eng")
         self.page_eng_html = QtWidgets.QWidget()
-        self.page_eng_html.setGeometry(QtCore.QRect(0, 0, 453, 393))
+        self.page_eng_html.setGeometry(QtCore.QRect(0, 0, 434, 471))
         self.page_eng_html.setObjectName("page_eng_html")
         self.gridLayout_6 = QtWidgets.QGridLayout(self.page_eng_html)
         self.gridLayout_6.setObjectName("gridLayout_6")
@@ -253,7 +258,7 @@ class Ui_ILX_translator_window(object):
         self.gridLayout_6.addWidget(self.textEdit_eng, 1, 0, 1, 1)
         self.toolBox_eng.addItem(self.page_eng_html, "")
         self.page_eng_rich_text = QtWidgets.QWidget()
-        self.page_eng_rich_text.setGeometry(QtCore.QRect(0, 0, 453, 393))
+        self.page_eng_rich_text.setGeometry(QtCore.QRect(0, 0, 91, 65))
         self.page_eng_rich_text.setObjectName("page_eng_rich_text")
         self.gridLayout_9 = QtWidgets.QGridLayout(self.page_eng_rich_text)
         self.gridLayout_9.setObjectName("gridLayout_9")
@@ -273,7 +278,7 @@ class Ui_ILX_translator_window(object):
         self.toolBox_trans.setStyleSheet("")
         self.toolBox_trans.setObjectName("toolBox_trans")
         self.page_trans_html = QtWidgets.QWidget()
-        self.page_trans_html.setGeometry(QtCore.QRect(0, 0, 453, 393))
+        self.page_trans_html.setGeometry(QtCore.QRect(0, 0, 433, 471))
         self.page_trans_html.setObjectName("page_trans_html")
         self.gridLayout_7 = QtWidgets.QGridLayout(self.page_trans_html)
         self.gridLayout_7.setObjectName("gridLayout_7")
@@ -286,7 +291,7 @@ class Ui_ILX_translator_window(object):
         self.gridLayout_7.addWidget(self.textEdit_trans, 1, 0, 1, 1)
         self.toolBox_trans.addItem(self.page_trans_html, "")
         self.page_trans_rich_text = QtWidgets.QWidget()
-        self.page_trans_rich_text.setGeometry(QtCore.QRect(0, 0, 453, 393))
+        self.page_trans_rich_text.setGeometry(QtCore.QRect(0, 0, 91, 65))
         self.page_trans_rich_text.setObjectName("page_trans_rich_text")
         self.gridLayout_8 = QtWidgets.QGridLayout(self.page_trans_rich_text)
         self.gridLayout_8.setObjectName("gridLayout_8")
@@ -333,12 +338,14 @@ class Ui_ILX_translator_window(object):
         self.gridLayout_4.addLayout(self.verticalLayout_tab_and_buttons, 0, 0, 1, 1)
         ILX_translator_window.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(ILX_translator_window)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 952, 20))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 913, 21))
         self.menubar.setStyleSheet("")
         self.menubar.setObjectName("menubar")
         self.menuFile = QtWidgets.QMenu(self.menubar)
         self.menuFile.setMinimumSize(QtCore.QSize(0, 0))
         self.menuFile.setObjectName("menuFile")
+        self.menuAbout = QtWidgets.QMenu(self.menubar)
+        self.menuAbout.setObjectName("menuAbout")
         ILX_translator_window.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(ILX_translator_window)
         self.statusbar.setObjectName("statusbar")
@@ -347,9 +354,20 @@ class Ui_ILX_translator_window(object):
         self.actionSave_html.setObjectName("actionSave_html")
         self.actionImport_html = QtWidgets.QAction(ILX_translator_window)
         self.actionImport_html.setObjectName("actionImport_html")
+        self.actionAbout_QT = QtWidgets.QAction(ILX_translator_window)
+        self.actionAbout_QT.setObjectName("actionAbout_QT")
+        self.actionInstructions = QtWidgets.QAction(ILX_translator_window)
+        self.actionInstructions.setObjectName("actionInstructions")
+        self.actionAbout_Program = QtWidgets.QAction(ILX_translator_window)
+        self.actionAbout_Program.setObjectName("actionAbout_Program")
         self.menuFile.addAction(self.actionSave_html)
         self.menuFile.addAction(self.actionImport_html)
+        self.menuAbout.addSeparator()
+        self.menuAbout.addAction(self.actionAbout_QT)
+        self.menuAbout.addAction(self.actionInstructions)
+        self.menuAbout.addAction(self.actionAbout_Program)
         self.menubar.addAction(self.menuFile.menuAction())
+        self.menubar.addAction(self.menuAbout.menuAction())
 
         self.retranslateUi(ILX_translator_window)
         self.tabWidget.setCurrentIndex(1)
@@ -364,6 +382,9 @@ class Ui_ILX_translator_window(object):
         self.lineEdit_search_trans.textChanged['QString'].connect(ILX_translator_window.lineEdit_search_trans_changed) # type: ignore
         self.actionSave_html.triggered.connect(ILX_translator_window.Save_html_triggered) # type: ignore
         self.actionImport_html.triggered.connect(ILX_translator_window.Import_html_triggered) # type: ignore
+        self.actionAbout_QT.triggered.connect(ILX_translator_window.aboutQT) # type: ignore
+        self.actionInstructions.triggered.connect(ILX_translator_window.instructions) # type: ignore
+        self.actionAbout_Program.triggered.connect(ILX_translator_window.aboutProgram) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(ILX_translator_window)
 
     def retranslateUi(self, ILX_translator_window):
@@ -390,8 +411,12 @@ class Ui_ILX_translator_window(object):
         self.pushButton_generate.setText(_translate("ILX_translator_window", "Generate\n"
 "HTML"))
         self.menuFile.setTitle(_translate("ILX_translator_window", "File"))
+        self.menuAbout.setTitle(_translate("ILX_translator_window", "Help"))
         self.actionSave_html.setText(_translate("ILX_translator_window", "Save English html"))
         self.actionImport_html.setText(_translate("ILX_translator_window", "Import English html"))
+        self.actionAbout_QT.setText(_translate("ILX_translator_window", "About QT"))
+        self.actionInstructions.setText(_translate("ILX_translator_window", "Instructions"))
+        self.actionAbout_Program.setText(_translate("ILX_translator_window", "About Program"))
 
 
 if __name__ == "__main__":

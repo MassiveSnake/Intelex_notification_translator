@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QMainWindow, QVBoxLayout, QFileDialog, QLineEdit, QMessageBox
+from PyQt5.QtWidgets import QMainWindow, QVBoxLayout, QFileDialog, QLineEdit, QMessageBox, QApplication
 from PyQt5.QtGui import QTextDocument, QTextCursor, QColor, QTextCharFormat
 from PyQt5.QtCore import QSize, QTimer, QFileInfo
 from ILX_translator_QT import Ui_ILX_translator_window
@@ -321,6 +321,85 @@ class MyMainWindow(QMainWindow, Ui_ILX_translator_window):
             cleaned_html = re.sub(pattern, replace, cleaned_html, count=1)
 
         self.textEdit_trans.setPlainText(cleaned_html)
+
+    def aboutQT(self):
+        msg = QApplication.aboutQt()
+
+    def aboutProgram(self):
+        title = "About this Program"
+
+        text = """<html> <p> 
+        This program has been designed to reduce Translation efforts for Intelex Notification 
+        templates. The program replaces the english text in the HTML code of the Notification Template with the 
+        provided translated text, without affecting the Intelex Fields. The html code of each notification can be 
+        found in the Application Translation tab with the ID. <br> <br> The program converts HTMl text into Rich text 
+        and creates a line-by-line Excel translation template to be send to the translator. The translated template 
+        can be imported, and generate the translated HTML code. Subsequently, this code can be copied into the 
+        Application Translation export and imported into Intelex. <br> <br> The Intelex html replacer is a Python 
+        based GUI developed with PyQT. Arcadis 2023 </p> </html> """
+
+        msg = QMessageBox()
+        # msg.setIconPixmap(QPixmap(":/images/Arcadis_logo.ico"))
+        msg.setWindowTitle(title)
+        msg.setText(text)
+
+        msg.exec()
+
+    def instructions(self):
+        title = "How to use this Program"
+        text = """\
+                    <html>
+                    <p>
+                    <b>1: Find the desired e-mail template in the respective Application Translation Excel export </b><br>
+                    In the Application Translate export you can find email template through the RecordID (GUID)
+                    You can find this ID either through Inspect, or by creating a Report in Intelex.
+                    Note: it doesnt matter which language you export. <br>
+                    <b>2: Check the English html and rich text formatting. </b><br>
+                    We want to achieve uniform formatting throughout all cultures. 
+                    Therefore, you should first double check if the English html has the desired rich text output. 
+                    You can correct it in the notification template (html editor). 
+                    Be Aware that you have to press "Extract" again in the Application Translate tab. 
+                    Or you can change the rich text by editing the html code. 
+                    Be Aware that this should be compatible with the html editor within Notification templates. <br>
+                    <b>3: Copy html of "English Value" into "Html English" box within the ILX html replacer application </b><br>
+                    If the English notification looks correct in Intelex, you can copy the html code into the "html english" box within the "HTML Replacer" tab.
+                    You can doulbe-check the output in the "Rich Text - English" tab below.
+                    Note: Added pictures will not appear correct in the program. However, it will on Intelex.
+                    To make it easier later, you can save this HTML message through the menu bar. <br>
+                    <b>4: Export Translation template </b><br>
+                    In the "Translation" tab you can check the export template.
+                    Subsequently, with "Export Translation Template" you can export this template as an Excel file.
+                    The default name can be specified in "Notification Template" text box. <br>
+                    <b>5: Send the Excel notification template to the translator </b><br>
+                    Translators should only add text in "Translation" column and not edit the {#fieldname} text. 
+                    Also ask the translator to translate the "Subject Title" (in Intelex export with identical ID) <br>
+                    <b>6: Re-open programm upon receiving all translation of a single notification template </b><br>
+                    Open or copy the English html text again in the "html - english" textbox again.
+                    Press "Import Translation Template" and select the desired translated Excel template.
+                    Head over to the "Translation" to check the translations. <br>
+                    <b>7: Generate Translated HTML text </b><br>
+                    Press "Generate HTML". You can check the output in the "Rich text - Translated" box. <br>
+                    <b>8: Copy HTMl into Intelex Import Export excel file </b><br>
+                    In the Excel export file from which we retrieved the html text,
+                    copy the generated translated html into the according "Translated Value" column.
+                    Change the "Locale" to the translated culture. <br>
+                    <b>9: Repeat translation for other languages. </b><br>
+                    Copy the row into the next line and repeat step 6 to 8 for the other languages. <br>
+                    <b>10: Import the Excel file into Intelex </b><br>
+                    Through Application translation import the Excel file with the multiple HTML translations.
+                    Press "Apply" and test if you translations are applied. <br>
+                    <br>
+                    <b>NOTE: The Notification subject title is described in another row (same key id) </b>
+                    </p>
+                    </html>
+                    """
+
+        msg = QMessageBox()
+        # msg.setIconPixmap(QPixmap(":/images/Arcadis_logo.ico"))
+        msg.setWindowTitle(title)
+        msg.setText(text)
+
+        msg.exec()
 
 
 class AutoResizingLineEdit(QLineEdit):
